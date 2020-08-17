@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "swiftReplies",
+  "description": "A simple page-scraping extension for Chrome",
+  "version": "1.0",
+  "author": "Timothy Osmond",
+
+  "background": {
+    "scripts": ["popup.js", "js.js"],
+    "persistent": true
+  },
+
+  "permissions": ["tabs", "http://*/", "https://*/"],
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_popup": "popup.html"
+  }
+}
