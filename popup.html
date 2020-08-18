@@ -7,16 +7,15 @@
     <link rel="stylesheet" href="../../css/bootstrap.css" />
   </head>
   <style>
-    a{
+    a {
       color: #797270;
-
     }
-    a:hover{
-      color:#4B4441;
+    a:hover {
+      color: #4b4441;
     }
-textarea{
-  height: 100%;
-}
+    textarea {
+      height: 100%;
+    }
     .nav-tabs .nav-link.active,
     .nav-tabs .nav-item.show .nav-link {
       background-color: #797270;
@@ -25,7 +24,8 @@ textarea{
     }
     body {
       width: 400px;
-      height: 500px;
+      min-height: 300px;
+      height: 100%;
       padding: 3px;
       background-color: #ebe7e7;
     }
@@ -34,22 +34,21 @@ textarea{
     }
     .btn {
       margin: 3px;
-      background-color: #4B4441;
+      background-color: #4b4441;
       border: 0px;
       color: #ebe7e7;
     }
 
-    .btn:hover{
-      background-color: #4B4441;
-
+    .btn:hover {
+      background-color: #4b4441;
     }
 
     svg {
       width: 120px;
       height: 120px;
       display: block;
-  margin-left: auto;
-  margin-right: auto;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* SMOKE */
@@ -107,10 +106,8 @@ textarea{
         opacity: 1;
       }
     }
-
   </style>
   <body>
-
     <svg
       width="64"
       height="64"
@@ -400,7 +397,6 @@ textarea{
       </g>
     </svg>
 
-
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <a
@@ -474,11 +470,26 @@ textarea{
             Save
           </button>
 
-          <div id="analystName"></div>
-          <div id="customerName"></div>
-          <div id="fullCustname"></div>
-          <div id="ticket"></div>
-          <div id="timeToReturn"></div>
+          <h2>How to Use</h2>
+          <div>
+            <ul>
+              <li>&lt;name> This prints your full name</li>
+              <li>&lt;customer> Prints the customers full name</li>
+              <li>&lt;customerFirstName>Prints the customers first name</li>
+              <li>&lt;ticket> Prints the ticket Number</li>
+              <li>&lt;time>Prints the time</li>
+       
+
+            </ul>
+            <p>
+              Write out a reply and use the following fields to define the
+              dynamic sections. For example:
+            </p>
+            <textarea class="form-control" id="reply" rows="3">Hello <customerFirstName>, </textarea>
+            <p>Would print as</p>
+
+            <textarea class="form-control" id="reply" rows="3">Hello John, </textarea>
+          </div>
         </div>
       </div>
     </div>

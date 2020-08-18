@@ -20,52 +20,59 @@ for (let i = 0; i < stored.length; i++) {
 
 for (let i = 0; i < stored.length; i++) {
   if (stored[i][0] !== "7566887b-6c8e-4f43-a469-59f0a26162a6") {
-    let title = document.createElement("div");
-    title.id = "p" + i;
-    title.innerHTML = stored[i][0];
-    document.querySelector("#edit").appendChild(title);
+  let title = document.createElement("div");
+  title.id = "p" + i;
+  title.innerHTML = stored[i][0];
+  document.querySelector("#edit").appendChild(title);
 
-    let ta = document.createElement("textarea");
-    ta.className = "form-control";
-    ta.id = "textarea" + i;
-    ta.innerHTML = stored[i][1];
-    document.querySelector("#edit").appendChild(ta);
+  let ta = document.createElement("textarea");
+  ta.className = "form-control";
+  ta.id = "textarea" + i;
+  ta.innerHTML = stored[i][1];
+  document.querySelector("#edit").appendChild(ta);
 
-    let save = document.createElement("BUTTON");
-    save.className = "btn btn-success";
-    save.id = "save" + i;
-    save.innerHTML = "Save";
-    document.querySelector("#edit").appendChild(save);
+  let save = document.createElement("BUTTON");
+  save.className = "btn btn-success";
+  save.id = "save" + i;
+  save.innerHTML = "Save";
+  document.querySelector("#edit").appendChild(save);
 
-    let btnDelete = document.createElement("BUTTON");
-    btnDelete.className = "btn btn-danger";
-    btnDelete.id = "delete" + i;
-    btnDelete.innerHTML = "delete";
-    document.querySelector("#edit").appendChild(btnDelete);
-  }
+  let btnDelete = document.createElement("BUTTON");
+  btnDelete.className = "btn btn-danger";
+  btnDelete.id = "delete" + i;
+  btnDelete.innerHTML = "delete";
+  document.querySelector("#edit").appendChild(btnDelete);
 }
-
-for (let i = 0; i < stored.length; ++i) {
-  let elem = document.getElementById("reply" + i);
-  elem.addEventListener("click", function () {
-    copier(stored[i][1]);
-  });
 }
 
 for (let i = 0; i < stored.length; ++i) {
   let elem = document.getElementById("delete" + i);
-  elem.addEventListener("click", function () {
-    deleter(stored[i][0]);
-  });
+  if (typeof elem != undefined && elem != null) {
+    elem.addEventListener("click", function () {
+      deleter(stored[i][0]);
+    });
+  }
 }
 
 for (let i = 0; i < stored.length; ++i) {
   let elem = document.getElementById("save" + i);
-  elem.addEventListener("click", function () {
-    let contentSave = document.querySelector("#textarea" + i).value;
-    console.log(contentSave);
-    saver(stored[i][0], contentSave);
-  });
+  if (typeof elem != undefined && elem != null) {
+    elem.addEventListener("click", function () {
+      let contentSave = document.querySelector("#textarea" + i).value;
+      console.log(contentSave);
+      saver(stored[i][0], contentSave);
+    });
+  }
+}
+function deleter(key) {
+  localStorage.removeItem(key);
+  location.reload();
+}
+
+function saver(key, value) {
+  console.log(key);
+  localStorage.setItem(key, value);
+  location.reload();
 }
 
 function copier(key) {
@@ -93,13 +100,11 @@ function copier(key) {
   document.body.removeChild(dummy);
 }
 
-function deleter(key) {
-  localStorage.removeItem(key);
-  location.reload();
-}
-
-function saver(key, value) {
-  console.log(key);
-  localStorage.setItem(key, value);
-  location.reload();
+for (let i = 0; i < stored.length; ++i) {
+  let elem = document.getElementById("reply" + i);
+  if (typeof elem != undefined && elem != null) {
+    elem.addEventListener("click", function () {
+      copier(stored[i][1]);
+    });
+  }
 }
