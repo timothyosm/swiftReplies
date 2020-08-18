@@ -5,6 +5,7 @@ var d = document.getElementById("mainForm-_ProcessRef");
 var e = document.getElementById("contentTitle");
 var f = document.getElementById("mainForm-_OrganisationDisplay");
 var g = document.querySelector("#mainForm-CreationUserTitleDisplay");
+var h = document.querySelector("#mainForm-CreationUserDisplay");
 
 if (typeof a != undefined && a != null) {
   var analystName = document.getElementById("mainForm-_CreateUserDisplay")
@@ -14,7 +15,11 @@ if (typeof a != undefined && a != null) {
 } else if (typeof g != undefined && g != null) {
   var analystName = document.querySelector("#mainForm-CreationUserTitleDisplay")
     .value;
+} else if (typeof h != undefined && h != null) {
+  var analystName = document.querySelector("#mainForm-CreationUserDisplay")
+    .value;
 }
+
 if (typeof c != undefined && c != null) {
   var fullCustname = document.getElementById("mainForm-_RaisedUserTitle").value;
   var customerName = fullCustname.split(" ")[0];
